@@ -1,0 +1,145 @@
+/* ==============================
+   Login Page Screen Styling
+   ============================== */
+
+@import url('https://fonts.googleapis.com/css?family=Maven+Pro:400,500,700,900');
+
+/* Overall screen */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Maven Pro', sans-serif;
+}
+
+body {
+    height: 100vh;
+    background: linear-gradient(-45deg, #1e1e2f, #3a3a60, #1c1c2b, #262648);
+    background-size: 400% 400%;
+    animation: gradientBG 10s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Login Container */
+.login-container {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 40px;
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    width: 350px;
+    color: white;
+}
+
+/* Logo and Caption */
+.logo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.logo {
+    width: 256px;
+    height: 80.5px;
+    margin-bottom: 5px;
+}
+
+.caption {
+    font-size: 14px;
+    color: rgba(255, 255, 255, 0.8);
+    font-weight: 500;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* Input Fields */
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group input {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.5);
+    color: white;
+    font-size: 16px;
+    outline: none;
+    transition: border-bottom 0.3s ease;
+}
+
+.input-group input:focus {
+    border-bottom: 2px solid #e96125;
+}
+
+.input-group label {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 16px;
+    color: rgba(255, 255, 255, 0.5);
+    transition: all 0.3s ease;
+    pointer-events: none;
+}
+
+.input-group input:focus + label,
+.input-group input:not(:placeholder-shown) + label {
+    top: -14px;
+    left: 5px;
+    font-size: 12px;
+    color: #e96125;
+}
+
+/* Login Button */
+.login-btn {
+    background: #e96125;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s ease;
+}
+
+.login-btn:hover {
+    background: #ff784a;
+}
+
+/* Forgot Password Link */
+.forgot-password {
+    margin-top: 15px;
+    font-size: 14px;
+}
+
+.forgot-password a {
+    color: #ff784a;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.forgot-password a:hover {
+    color: #e96125;
+}
+
+/* Copyright Notice */
+.copyright {
+    margin-top: 20px;
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.6);
+}

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{% block title %}StockFlow{% endblock %}</title>
+  <link rel="stylesheet" href="static/css/base.css">
+  {% block head %}{% endblock %}
+</head>
+
+<body>
+  <div class="container">
+    <!-- Top Banner -->
+    <div class="top-banner">
+      <img src="static/images/logo.png" alt="Logo" class="logo">
+      <a href="/logout" class="logout-btn">Logout</a>
+    </div>
+
+    <!-- Left Strip -->
+    <div class="left-strip">
+      <!-- Tools Section -->
+      <h1 class="strip-title">TOOLS</h1>
+      <ul class="menu">
+        <li class="active">
+          <a href="{{ url_for('user_management') }}" class="menu-link">
+            <img src="static/images/icons/user_management.png" alt="Icon"> User Management
+          </a>
+        </li>
+        <li>
+          <a href="{{ url_for('inventory_tracking') }}" class="menu-link">
+            <img src="static/images/icons/inventory_tracking.png" alt="Icon"> Live Inventory Tracking
+          </a>
+        </li>
+        <li>
+          <a href="{{ url_for('product_management') }}" class="menu-link">
+            <img src="static/images/icons/product_management.png" alt="Icon"> Product Management
+          </a>
+        </li>
+        <li>
+          <a href="{{ url_for('inventory_reporting') }}" class="menu-link">
+            <img src="static/images/icons/inventory_reporting.png" alt="Icon"> Inventory Reporting
+          </a>
+        </li>
+      </ul>
+
+      <!-- In Progress Section -->
+      <h1 class="strip-title">IN PROGRESS</h1>
+      <ul class="menu">
+        <li><img src="static/images/icons/electronics.png" alt="Icon"> Electronics</li>
+        <li><img src="static/images/icons/furniture.png" alt="Icon"> Furniture</li>
+        <li><img src="static/images/icons/books.png" alt="Icon"> Books</li>
+        <li><img src="static/images/icons/health.png" alt="Icon"> Health</li>
+      </ul>
+
+      <!-- References Section -->
+      <h1 class="strip-title">REFERENCES</h1>
+      <div class="references">
+        <p>StockFlow Logo: <a href="https://www.textstudio.com/logo/amazon-logo-827" target="_blank">TextStudio</a></p>
+        <p>Icons: <a href="https://boxicons.com/" target="_blank">Boxicons</a></p>
+        <p>Product Images: <a href="https://groceries.morrisons.com/" target="_blank">Morrisons</a></p>
+      </div>
+
+      <!-- Footer -->
+      <p class="footer-text">&copy; 2025 All Rights Reserved. <strong>StockFlow</strong></p>
+    </div>
+
+    <!-- Main Body -->
+    <div class="main-body">
+      {% block content %}{% endblock %}
+    </div>
+  </div>
+</body>
+</html>

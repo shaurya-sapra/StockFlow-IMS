@@ -1,0 +1,56 @@
+<!-- Uses base.html as a parent template for code reusability -->
+{% extends "base_screen.html" %}
+
+{% block title %}Inventory Reporting{% endblock %}
+
+{% block head %}
+  <!-- Head block includes external stylesheets and scripts needed -->
+  <link rel="stylesheet" href="static/css/inventory_reporting.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!-- chart.js to construct graph/charts -->
+  <script src="static/js/inventory_reporting.js" defer></script>
+{% endblock %}
+
+{% block content %}
+  <div class="header">
+    <h1 class="page-title">Inventory Reporting</h1>
+  </div>
+
+  <!-- Metrics Section -->
+  <div class="metrics-container">
+    <!-- Total Products Metric -->
+    <div class="metric-box">
+      <h2>Total Products</h2>
+      <p id="total-products">{{ total_products }}</p>
+    </div>
+
+    <!-- Total Stock Metric -->
+    <div class="metric-box">
+      <h2>Total Stock</h2>
+      <p id="total-stock">{{ total_stock }}</p>
+    </div>
+  </div>
+
+  <!-- Charts Section -->
+  <div class="charts-container">
+    <!-- Donut Chart -->
+    <div class="chart-box">
+      <h2>Groceries Sub-Category Distribution</h2>
+      <canvas id="donut-chart"></canvas>
+    </div>
+
+    <!-- Line Chart -->
+    <div class="chart-box">
+      <h2>Stock History</h2>
+      <canvas id="line-chart"></canvas>
+    </div>
+  </div>
+
+  <!-- Pass Data to JavaScript -->
+  <script>
+    const categories = {{ categories | tojson }};
+    const counts = {{ counts | tojson }};
+    const dates = {{ dates | tojson }};
+    const stock = {{ stock | tojson }};
+  </script>
+{% endblock %}

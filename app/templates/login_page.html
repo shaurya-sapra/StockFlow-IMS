@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <link href="static/css/login_page.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Login Container -->
+    <div class="login-container">
+        <!-- Logo and Caption -->
+        <div class="logo-container">
+            <img src="static/images/logo.png" alt="Logo" class="logo">
+            <p class="caption">Inventory Management System</p>
+        </div>
+
+        <!-- Error derived from routes.py if invalid credentials -->
+        {% if error %}
+            <p>{{ error }}</p>
+        {% endif %}
+
+
+        <!-- Login Form -->
+        <form class="login-form" action="/login" method="POST">
+            <!-- Email Input -->
+            <div class="input-group">
+                <input type="email" id="email" name="email" required>
+                <label for="email">Email</label>
+            </div>
+
+            <!-- Password Input -->
+            <div class="input-group">
+                <input type="password" id="password" name="password" required>
+                <label for="password">Password</label>
+            </div>
+
+            <!-- Login Button -->
+            <button type="submit" class="login-btn">
+                Login
+            </button>
+
+            <!-- Forgot Password -->
+            <p class="forgot-password"><a href="#">Forgot Password?</a></p>
+
+            <!-- Copyright -->
+            <p class="copyright">&copy; 2025 All Rights Reserved. <strong>StockFlow</strong></p>
+        </form>
+    </div>
+</body>
+</html>

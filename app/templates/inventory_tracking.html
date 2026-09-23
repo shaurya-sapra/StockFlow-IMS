@@ -1,0 +1,92 @@
+<!-- Uses base.html as a parent template for code reusability -->
+{% extends "base_screen.html" %}
+
+{% block title %}Live Inventory Tracking{% endblock %}
+
+{% block head %}
+  <!-- Head block includes external stylesheets and scripts needed -->
+  <link rel="stylesheet" href="static/css/inventory_tracking.css">
+
+  <script src="static/js/inventory_tracking.js"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="header">
+        <h1 class="page-title">Live Inventory Tracking</h1>
+        
+        <!-- Search Bar for Filtering Products -->
+        <input type="text" class="search-bar" id="search-bar" placeholder="Search products...">
+        
+        <!-- Category Filter Dropdown -->
+        <select id="category-select" class="category-filter">
+            <option value="all">All Categories</option>
+            <option value="Fruit & Veg">Fruit & Veg</option>
+            <option value="Dairy">Dairy</option>
+            <option value="Meat">Meat</option>
+            <option value="Snacks">Snacks</option>
+            <option value="Bread & Bakery">Bread & Bakery</option>
+        </select>
+        
+        <!-- Sort Filter Dropdown -->
+        <select id="sort-select" class="sort-filter">
+            <option value="default">Sort By</option>
+            <option value="low-high">Price: Low to High</option>
+            <option value="high-low">Price: High to Low</option>
+        </select>
+    </div>
+
+    <!-- Inventory Table -->
+    <table class="inventory-table" id="inventoryTable">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Product Name</th>
+                <th>Image</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody id="table-body">
+            <!-- Table rows will be populated using JavaScript via backend DB -->
+        </tbody>
+    </table>
+
+    <!-- Viewing and Editing Product Details -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="modal-text"></p>
+            
+            <!-- Product Details Form -->
+            <form id="view-details-form">
+                <label for="price-input">Price:</label>
+                <input type="number" id="price-input" name="price" step="0.01" required>
+
+                <label for="weight-input">Weight (g):</label>
+                <input type="number" id="weight-input" name="weight" step="0.1" required>
+
+                <label for="calories-input">Calories:</label>
+                <input type="number" id="calories-input" name="calories" required>
+
+                <label for="carbs-input">Carbs (g):</label>
+                <input type="number" id="carbs-input" name="carbs" step="0.1" required>
+
+                <label for="protein-input">Protein (g):</label>
+                <input type="number" id="protein-input" name="protein" step="0.1" required>
+
+                <label for="fat-input">Fat (g):</label>
+                <input type="number" id="fat-input" name="fat" step="0.1" required>
+
+                <label for="expiry-date-input">Expiry Date:</label>
+                <input type="date" id="expiry-date-input" name="expiry_date" required>
+
+                <label for="supplier-input">Supplier:</label>
+                <input type="text" id="supplier-input" name="supplier" required>
+
+                <!-- Update Product Button -->
+                <button type="submit" id="update-product-button">Update</button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

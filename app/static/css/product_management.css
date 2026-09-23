@@ -1,0 +1,55 @@
+/* ==============================
+   Product Management Screen Styling
+   ============================== */
+
+/* Add Product Form */
+
+.user-form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    max-width: 400px;
+    margin: 20px auto;
+    display: none; /* Hidden by default */
+}
+
+/* Fields to be inputted by user */
+
+.user-form input,
+.user-form select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+/* Add/Delete Product Button */
+
+.add-product-btn,
+.delete-product {
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.add-product-btn {
+    background: #007bff;
+}
+
+.add-product-btn:hover {
+    background: #0056b3;
+}
+
+.delete-product {
+    background: #dc3545;
+}
+
+.delete-product:hover {
+    background: #c82333;
+}

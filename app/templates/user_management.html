@@ -1,0 +1,84 @@
+<!-- Uses base.html as a parent template for code reusability -->
+{% extends "base_screen.html" %}
+
+{% block title %}User Management{% endblock %}
+
+{% block head %}
+  <!-- Head block includes external stylesheets and scripts needed -->
+  <link rel="stylesheet" href="static/css/user_management.css">
+
+  <script src="static/js/admin_privileges.js"></script>
+{% endblock %}
+
+{% block content %}
+  <div class="header">
+    <h1 class="page-title">User Management</h1>
+    <div class="header-actions">
+      <input type="text" id="searchBar" class="search-bar" placeholder="Search authorised users...">
+      <button id="addUserBtn" class="add-user-btn">Add New User</button>
+    </div>
+  </div>
+
+  <!-- Add User Form -->
+  <!-- Form is initially hidden and is displayed once the 'Add New User' button is clicked -->
+  <section id="addUserForm" class="user-form" style="display: none;">
+    <h2>Add New User</h2>
+    <form id="newUserForm" method="post" action="{{ url_for('add_user') }}">
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="email" name="email" placeholder="Email" required>
+      <input type="password" name="password" placeholder="Password" required>
+      <select name="account_type">
+        <option value="employee">Employee</option>
+        <option value="admin">Admin</option>
+      </select>
+      <button type="submit" class="add-user-btn">Add User</button>
+      <button type="button" class="cancel-btn" onclick="toggleAddUserForm()">Cancel</button>
+    </form>
+  </section>
+
+  <!-- User Table -->
+  <!-- This table dynamically lists users from the database, displaying their name, role, and available actions -->
+  <table class="user-table" id="userTable">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Role</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for user in users %}
+      <tr>
+        <td>{{ loop.index }}</td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.account_type }}</td>
+        <td>
+          {% if session['user_email'] == user.email %}
+            <!-- Users cannot change their own permissions to prevent accidental lockout or privilege escalation -->
+            <span>You cannot change your own permissions!</span>
+          {% elif session['user_role'] == 'admin' %}
+            <!-- Role-based access control: Only admins can promote, demote, or delete other users -->
+            <div class="action-buttons">
+              {% if user.account_type == 'employee' %}
+                <form method="post" action="{{ url_for('promote', user_id=user.user_id) }}">
+                  <button type="submit" class="promote-btn">Promote</button>
+                </form>
+              {% else %}
+                <form method="post" action="{{ url_for('demote', user_id=user.user_id) }}">
+                  <button type="submit" class="demote-btn">Demote</button>
+                </form>
+              {% endif %}
+              <form method="post" action="{{ url_for('delete_user', user_id=user.user_id) }}">
+                <button type="submit" class="delete-btn">Delete</button>
+              </form>
+            </div>
+          {% else %}
+            <span>Admin account required.</span>
+          {% endif %}
+        </td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+{% endblock %}
