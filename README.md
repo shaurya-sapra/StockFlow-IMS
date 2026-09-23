@@ -2,12 +2,34 @@
 
 A full-stack web application for tracking stock and managing inventory, with hashed authentication and role-based access for administrators and employees. Built with Python and Flask, backed by a normalised SQLite database.
 
-<!-- Add a screenshot to make this pop — run the app, take a screenshot of the inventory
-     or reporting page, save it as screenshots/dashboard.png, and uncomment the line below. -->
-<!-- ![StockFlow dashboard](screenshots/dashboard.png) -->
+## Screenshots
+
+<h3 align="center">Login</h3>
+<p align="center">
+  <img width="850" alt="Login screen" src="https://github.com/user-attachments/assets/894f6dbf-8cb1-4a13-b144-804a212d67d8" />
+</p>
+
+<h3 align="center">User Management</h3>
+<p align="center">
+  <img width="850" alt="User management screen" src="https://github.com/user-attachments/assets/39823935-8d11-4ccb-b41b-a0f22e167157" />
+</p>
+
+<h3 align="center">Live Inventory Tracking</h3>
+<p align="center">
+  <img width="850" alt="Live inventory tracking screen" src="https://github.com/user-attachments/assets/772c9174-f0a2-4a16-8c9a-b57a85716b83" />
+</p>
+
+<h3 align="center">Product Management</h3>
+<p align="center">
+  <img width="850" alt="Product management screen" src="https://github.com/user-attachments/assets/9352ead7-a641-4e01-b827-b845d6990ddc" />
+</p>
+
+<h3 align="center">Inventory Reporting</h3>
+<p align="center">
+  <img width="850" alt="Inventory reporting screen" src="https://github.com/user-attachments/assets/41a04ff5-5d12-4dd8-886c-9e89ca2ed497" />
+</p>
 
 ---
-
 ## Overview
 
 StockFlow lets a team keep on top of physical stock in one place: staff can view live inventory, update stock levels and inspect product details, while administrators additionally manage the product catalogue and user accounts. An inventory reporting page turns the underlying data into charts and metrics so trends are visible at a glance.
